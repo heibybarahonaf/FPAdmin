@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FPAdmin.Views.NuevoProductoPage"
+             Title="Nuevo Producto">
+    <VerticalStackLayout Padding="10" Spacing="10">
+        <Grid ColumnDefinitions="*,120" VerticalOptions="Center">
+            <Image x:Name="fotoImage"
+                   Source="flores.jpg"
+                   HeightRequest="200"
+                   Aspect="AspectFill"
+                   Grid.Column="0"/>
+            <Button Text="Seleccionar"
+                    x:Name="seleccionarButton"
+                    Grid.Column="1"
+                    HeightRequest="50"
+                    Clicked="seleccionarButton_Clicked"/>
+        </Grid>
+        <!--
+        <Picker Title="Seleccionar categoria"
+                ItemsSource="{Binding Categorias}"
+                ItemDisplayBinding="{Binding Nombre}"
+                x:Name="categoriaPicker"/>-->
+        <Entry Placeholder="Categoria"
+               x:Name="categoriaEntry"/>
+        <Entry Placeholder="Nombre"
+               x:Name="nombreEntry"/>
+        <Entry Placeholder="Descripcion"
+               x:Name="descripcionEntry"/>
+        <Entry Placeholder="Precio"
+               x:Name="PrecioEntry"
+               Keyboard="Numeric"/>
+        <Button Text="Guardar"
+                x:Name="guardarButton"
+                Clicked="guardarButton_Clicked"/>
+    </VerticalStackLayout>
+</ContentPage>

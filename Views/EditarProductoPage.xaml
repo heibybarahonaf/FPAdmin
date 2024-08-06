@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:FPAdmin.ViewModels"
+             x:Class="FPAdmin.Views.EditarProductoPage"
+             Title="Editar Producto"
+             BackgroundColor="#F8F8F8">
+
+     <ContentPage.BindingContext>
+        <viewModels:EditarProductoViewModel />
+    </ContentPage.BindingContext> 
+
+    <ScrollView>
+        <StackLayout Padding="20" Spacing="15">
+
+            <!-- Imagen del Producto -->
+            <Frame HasShadow="True" CornerRadius="10" Padding="0" Margin="0,0,0,20">
+                <Image Source="{Binding Producto.Foto}" 
+                       Aspect="AspectFill" 
+                       HeightRequest="200" 
+                       WidthRequest="200"
+                       BackgroundColor="White"/>
+            </Frame>
+
+            <!-- Botón para Seleccionar Imagen -->
+            <Button Text="Seleccionar Imagen" 
+                    Command="{Binding SeleccionarCommand}" 
+                    BackgroundColor="#009688" 
+                    TextColor="White" 
+                    CornerRadius="5" 
+                    Padding="10" 
+                    FontSize="16"/>
+
+            <!-- Campos del Producto -->
+
+            <Label Text="Categoría" 
+                   FontSize="18" 
+                   FontAttributes="Bold" 
+                   TextColor="#333"/>
+            <Entry Text="{Binding Producto.Categoria}" 
+                   Placeholder="Ingrese la categoría del producto" 
+                   BackgroundColor="White" />
+
+            <Label Text="Nombre" 
+                   FontSize="18" 
+                   FontAttributes="Bold" 
+                   TextColor="#333"/>
+            <Entry Text="{Binding Producto.Nombre}" 
+                   Placeholder="Ingrese el nombre del producto" 
+                   BackgroundColor="White" />
+
+            <Label Text="Descripción" 
+                   FontSize="18" 
+                   FontAttributes="Bold" 
+                   TextColor="#333"/>
+            <Entry Text="{Binding Producto.Descripcion}" 
+                   Placeholder="Ingrese la descripción del producto" 
+                   BackgroundColor="White" />
+
+            <Label Text="Precio" 
+                   FontSize="18" 
+                   FontAttributes="Bold" 
+                   TextColor="#333"/>
+            <Entry Text="{Binding Producto.Precio}" 
+                   Placeholder="Ingrese el precio del producto" 
+                   Keyboard="Numeric" 
+                   BackgroundColor="White" />
+
+            <!-- Botones de Acción -->
+            <StackLayout Orientation="Horizontal" Spacing="10">
+                <Button Text="Guardar" 
+                        Command="{Binding GuardarCommand}" 
+                        BackgroundColor="#4CAF50" 
+                        TextColor="White" 
+                        CornerRadius="5" 
+                        Padding="10" 
+                        FontSize="16" 
+                        HorizontalOptions="FillAndExpand"/>
+
+                <Button Text="Cancelar" 
+                        Command="{Binding CancelarCommand}" 
+                        BackgroundColor="#F44336" 
+                        TextColor="White" 
+                        CornerRadius="5" 
+                        Padding="10" 
+                        FontSize="16" 
+                        HorizontalOptions="FillAndExpand"/>
+            </StackLayout>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
+
